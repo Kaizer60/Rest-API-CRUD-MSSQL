@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fetch API</title>
+  </head>
+  <body>
+    <button id="getData">Get Data</button>
+    <ul id="myList"></ul>  
+
+    <script>
+      function showData(data){
+          let myList = document.querySelector('#myList')
+          data.forEach(val => {
+              let myEl = document.createElement('li')
+              myEl.innerText = `Employee : ${val.fullname} ${val.email}`
+              myList.appendChild(myEl)
+          });
+      }
+
+      async function getData(){
+          let response = await fetch('http://localhost:3000/api/employees/')
+          let data = await response.json()
+          showData(data)
+          console.log(data)
+      }
+      let getDataBtn = document.querySelector('#getData')
+      getDataBtn.addEventListener('click', getData)
+    </script>
+  </body>
+</html>

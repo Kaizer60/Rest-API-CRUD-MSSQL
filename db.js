@@ -1,8 +1,8 @@
 const sql = require("mssql/msnodesqlv8");
 
 const config = {
-  server: "your_server_name",
-  database: "database_name",
+  server: "DESKTOP-GJR1GG8\\SQLEXPRESS",
+  database: "employee",
   driver: "msnodesqlv8",
   options: {
     trustedConnection: true,
